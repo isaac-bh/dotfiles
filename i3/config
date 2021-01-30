@@ -1,0 +1,152 @@
+set $transparent	#000000
+set $background		#282a36
+set $foreground		#f8f8f2
+
+set $black			#000000
+set $white			#bfbfbf
+set $red			#ff5555
+set $green			#50fa7b
+set $blue			#bd93f9
+set $cyan			#8be9fd
+set $yellow			#f1fa8c
+set $magenta		#ff79c6
+
+set $black-bright	#4d4d4d
+set $white-bright	#e6e6e6
+set $red-bright		#ff6e67
+set $green-bright	#5af78e
+set $blue-bright	#caa9fa
+set $cyan-bright	#9aedfe
+set $yellow-bright	#f4f99d
+set $magenta-bright	#ff92d0
+
+set $black-dim		#14151b
+set $white-dim		#e6e6d1
+set $red-dim		#ff2222
+set $green-dim		#1ef956
+set $blue-dim		#4d5b86
+set $cyan-dim		#59dffc
+set $yellow-dim		#ebf85b
+set $magenta-dim	#ff46b0
+set $orange 		#51AFEF
+
+
+
+# <class>				<border>		<background>	<text>			<indicator>		<child_border>
+
+gaps top 5
+gaps inner 10
+title_align center
+default_border pixel 2
+default_floating_border normal 2
+
+focus_wrapping no
+focus_follows_mouse no
+focus_on_window_activation smart
+popup_during_fullscreen smart
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+font pango:Fira Sans Medium 10
+
+set $super Mod4
+floating_modifier $super
+
+bindsym $super+Shift+r restart
+
+bindsym $super+Return exec --no-startup-id kitty
+bindsym $super+d exec --no-startup-id rofi -show drun
+bindsym $super+e exec --no-startup-id code
+
+bindsym $super+q kill
+bindsym $super+f fullscreen toggle
+bindsym $super+space floating toggle
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
+
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+bindsym $super+1 workspace number $ws1
+bindsym $super+2 workspace number $ws2
+bindsym $super+3 workspace number $ws3
+bindsym $super+4 workspace number $ws4
+bindsym $super+5 workspace number $ws5
+bindsym $super+6 workspace number $ws6
+bindsym $super+7 workspace number $ws7
+bindsym $super+Shift+1 move container to workspace number $ws1
+bindsym $super+Shift+2 move container to workspace number $ws2
+bindsym $super+Shift+3 move container to workspace number $ws3
+bindsym $super+Shift+4 move container to workspace number $ws4
+bindsym $super+Shift+5 move container to workspace number $ws5
+bindsym $super+Shift+6 move container to workspace number $ws6
+bindsym $super+Shift+7 move container to workspace number $ws7
+
+bindsym $super+Ctrl+q mode "Power"
+mode "Power"
+{
+	bindsym e exec --no-startup-id i3-msg exit, mode "default"
+	bindsym l exec --no-startup-id loginctl lock-session, mode "default"
+	bindsym s exec --no-startup-id systemctl suspend-then-hibernate, mode "default"
+	bindsym h exec --no-startup-id systemctl hibernate, mode "default"
+	bindsym r exec --no-startup-id systemctl reboot, mode "default"
+	bindsym p exec --no-startup-id systemctl poweroff -i, mode "default"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+
+# Resize
+mode "resize" {
+    # These bindings trigger as soon as you enter the resize mode
+
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym j           resize shrink width 10 px or 10 ppt
+    bindsym k           resize grow height 10 px or 10 ppt
+    bindsym l           resize shrink height 10 px or 10 ppt
+    bindsym semicolon   resize grow width 10 px or 10 ppt
+
+    # same bindings, but for the arrow keys
+    bindsym Left        resize shrink width 10 px or 10 ppt
+    bindsym Down        resize grow height 10 px or 10 ppt
+    bindsym Up          resize shrink height 10 px or 10 ppt
+    bindsym Right       resize grow width 10 px or 10 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Enter resize mode
+bindsym $super+r mode "resize"
+
+bindsym Print exec --no-startup-id screenshot
+
+bindsym XF86Sleep exec --no-startup-id systemctl suspend-then-hibernate
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+exec_always --no-startup-id autotiling
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id setxkbmap latam
+exec_always --no-startup-id feh --bg-scale ~/Imágenes/xd.jpg
+exec_always --no-startup-id xinput set-prop 11 300 1, 1, 1, 1, 1, 1, 1
