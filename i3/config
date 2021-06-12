@@ -28,7 +28,6 @@ set $refresh_i3status killall -SIGUSR1 i3statusvolume
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym XF86AudioMicMute exec --no-startup-id ~/.scripts/mic-mute.sh
 
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
@@ -187,19 +186,30 @@ bindsym Print exec "scrot ~/%Y-%m-%d-%T-screenshot.png"
 
 # autostart
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id polybar main
+exec --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id picom --experimental-backends -b
 exec --no-startup-id dunst
 exec --no-startup-id thunar --daemon
-exec --no-startup-id xinput set-prop 11 290 1
+exec --no-startup-id xinput set-prop 11 282 1
+exec --no-startup-id setxkbmap latam 
 exec --no-startup-id nm-applet
 
 # turn off borders
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 3
 # make pavucontrol floating
 for_window [class="Pavucontrol$"] floating enable
 
 
 # set gaps
 gaps inner 8
-gaps outer 20
+gaps outer 10
+
+for_window [class="^.*"] border pixel 1, title_format "<b> %class >> %title </b>"
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #1a1a1a #FFC745	#ebdbb2 #FFC745
+client.unfocused        #1a1a1a #1a1a1a	#ebdbb2
+client.focused_inactive #1a1a1a #1a1a1a	#ffffff
+
+# Enable popup during fullscreen
+popup_during_fullscreen smart

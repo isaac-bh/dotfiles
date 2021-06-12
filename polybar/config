@@ -1,19 +1,17 @@
 [settings]
-bg = ${xrdb:background}
-bg2 = #383c44
-red = ${xrdb:color1}
-green = ${xrdb:color2}
-yellow = ${xrdb:color3}
-blue = ${xrdb:color4}
-magenta = ${xrdb:color5}
-cyan = ${xrdb:color6}
-white = ${xrdb:color7}
+bg = #1D2021
+bg2 = #282828
+red = #EA6962
+green = #A9B665
+yellow = #FFC745
+blue = #7DAEA3
+magenta = #D3869B
 
 [bar/main]
 bottom = false
 fixed-center = true
 width = 100%
-height = 30
+height = 28
 offset-x = 0
 offset-y = 0
 underline-size = 4
@@ -25,11 +23,12 @@ module-margin = 0
 font-0 = Iosevka Nerd Font:size=12;2
 font-1 = WeatherIcons:size=11;2
 font-2 = MaterialIcons:size=12;2
-font-3 = Iosevka Nerd Font:size=13;3
-modules-left = sep1 i3 sep2 sep1 playerctl sep2
+font-3 = Iosevka Nerd Font:size=18;3
+modules-left = sep1 i3 sep2
 modules-center = sep1 date sep2
 modules-right = sep1 vol sep2 sep1 bness sep2 sep1 batt sep2 sep1 wlan sep2 
 locale = es_MX.UTF-8
+tray-position = right
 
 [module/i3]
 type = internal/i3
@@ -127,7 +126,7 @@ format-muted-overline = ${settings.bg}
 
 [module/wlan]
 type = internal/network
-interface = wlan0
+interface = wlp1s0
 format-connected = <label-connected>
 label-connected = %essid%
 format-connected-prefix = "直 "
@@ -147,7 +146,7 @@ format-disconnected-overline = ${settings.bg}
 
 [module/date]
 type = internal/date
-date =  %H:%M
+date =  %I:%M %p%{F-}
 date-alt =  %A, %d %B %Y
 format-foreground = ${settings.yellow}
 format-background = ${settings.bg2}
@@ -218,3 +217,4 @@ content-font = 4
 content = " "
 content-underline = ${settings.bg}
 content-overline = ${settings.bg}
+
