@@ -1,11 +1,11 @@
 [settings]
-bg = #1D2021
-bg2 = #282828
-red = #EA6962
-green = #A9B665
-yellow = #FFC745
-blue = #7DAEA3
-magenta = #D3869B
+bg = #aa1A1B26
+bg2 = #1A1B26
+red = #F7768E
+green = #9ECE6A
+yellow = #E0AF68
+blue = #7AA2F7
+magenta = #BB9AF7
 
 [bar/main]
 bottom = false
@@ -37,29 +37,21 @@ format = <label-state>
 label-focused = %icon%
 label-focused-foreground = ${settings.magenta}
 label-focused-background = ${settings.bg2}
-label-focused-overline = ${settings.bg}
-label-focused-underline = ${settings.bg}
 label-focused-padding = 1
 
 label-unfocused = %icon%
 label-unfocused-foreground = ${settings.blue}
 label-unfocused-background = ${settings.bg2}
-label-unfocused-overline = ${settings.bg}
-label-unfocused-underline = ${settings.bg}
 label-unfocused-padding = 1
 
 label-urgent = %icon%
 label-urgent-foreground = ${settings.red}
 label-urgent-background = ${settings.bg2}
-label-urgent-overline = ${settings.bg}
-label-urgent-underline = ${settings.bg}
 label-urgent-padding = 1
 
 label-visible = %icon%
 label-visible-foreground = ${settings.yellow}
 label-visible-background = ${settings.bg2}
-label-visible-overline = ${settings.bg}
-label-visible-underline = ${settings.bg}
 label-visible-padding = 1
 
 ws-icon-0 = 1;
@@ -83,8 +75,6 @@ interval = 1
 format-prefix = " "
 format-background = ${settings.bg2}
 format-foreground = ${settings.green}
-format-underline = ${settings.bg}
-format-overline = ${settings.bg}
 
 [module/bness]
 type = internal/backlight
@@ -100,8 +90,6 @@ ramp-3 = 
 ramp-4 = 
 format-background = ${settings.bg2}
 format-foreground = ${settings.blue}
-format-underline = ${settings.bg}
-format-overline = ${settings.bg}
 
 [module/vol]
 type = internal/pulseaudio
@@ -115,8 +103,6 @@ ramp-volume-2 = 墳
 click-right = pavucontrol
 format-volume-background = ${settings.bg2}
 format-volume-foreground = ${settings.yellow}
-format-volume-underline = ${settings.bg}
-format-volume-overline = ${settings.bg}
 #format-volume-padding = 1
 format-muted-background = ${settings.bg2}
 format-muted-foreground = ${settings.red}
@@ -126,7 +112,7 @@ format-muted-overline = ${settings.bg}
 
 [module/wlan]
 type = internal/network
-interface = wlp1s0
+interface = wlan0
 format-connected = <label-connected>
 label-connected = %essid%
 format-connected-prefix = "直 "
@@ -135,13 +121,9 @@ label-disconnected = "Disconnected"
 format-disconnected-prefix = "睊 "
 format-connected-foreground = ${settings.magenta}
 format-connected-background = ${settings.bg2}
-format-connected-underline = ${settings.bg}
-format-connected-overline = ${settings.bg}
 #format-connected-padding = 1
 format-disconnected-foreground = ${settings.magenta}
 format-disconnected-background = ${settings.bg2}
-format-disconnected-underline = ${settings.bg}
-format-disconnected-overline = ${settings.bg}
 #format-disconnected-padding = 1
 
 [module/date]
@@ -150,8 +132,6 @@ date =  %I:%M %p%{F-}
 date-alt =  %A, %d %B %Y
 format-foreground = ${settings.yellow}
 format-background = ${settings.bg2}
-format-underline = ${settings.bg}
-format-overline = ${settings.bg}
 #format-padding = 1
 
 [module/batt]
@@ -182,13 +162,9 @@ format-charging-overline = ${settings.bg}
 #format-charging-padding = 1
 format-discharging-background = ${settings.bg2}
 format-discharging-foreground = ${settings.green}
-format-discharging-underline = ${settings.bg}
-format-discharging-overline = ${settings.bg}
 #format-discharging-padding = 1
 format-full-background = ${settings.bg2}
 format-full-foreground = ${settings.green}
-format-full-underline = ${settings.bg}
-format-full-overline = ${settings.bg}
 #format-full-padding = 1
 
 [module/weather]
@@ -198,8 +174,6 @@ interval = 60
 label-font = 2
 format-background = ${settings.bg2}
 format-foreground = ${settings.yellow}
-format-underline = ${settings.bg}
-format-overline = ${settings.bg}
 #format-padding = 1
 
 [module/sep1]
@@ -207,14 +181,10 @@ type = custom/text
 content-font = 4
 content = " "
 content-foreground = ${settings.bg2}
-content-underline = ${settings.bg}
-content-overline = ${settings.bg}
 
 [module/sep2]
 type = custom/text
 content-foreground = ${settings.bg2}
 content-font = 4
 content = " "
-content-underline = ${settings.bg}
-content-overline = ${settings.bg}
 

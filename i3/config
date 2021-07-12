@@ -187,15 +187,15 @@ bindsym Print exec "scrot ~/%Y-%m-%d-%T-screenshot.png"
 # autostart
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id ~/.config/polybar/launch.sh
-exec --no-startup-id picom --experimental-backends -b
+exec --no-startup-id picom -b --experimental-backends
 exec --no-startup-id dunst
 exec --no-startup-id thunar --daemon
-exec --no-startup-id xinput set-prop 11 282 1
+exec --no-startup-id xinput set-prop 11 284 1
 exec --no-startup-id setxkbmap latam 
 exec --no-startup-id nm-applet
 
 # turn off borders
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 0
 # make pavucontrol floating
 for_window [class="Pavucontrol$"] floating enable
 
@@ -204,10 +204,10 @@ for_window [class="Pavucontrol$"] floating enable
 gaps inner 8
 gaps outer 10
 
-for_window [class="^.*"] border pixel 1, title_format "<b> %class >> %title </b>"
+for_window [class="^.*"] border pixel 0, title_format "<b> %class >> %title </b>"
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #1a1a1a #FFC745	#ebdbb2 #FFC745
+client.focused          #1a1a1a #e0af68 #ebdbb2 #e0af68
 client.unfocused        #1a1a1a #1a1a1a	#ebdbb2
 client.focused_inactive #1a1a1a #1a1a1a	#ffffff
 
