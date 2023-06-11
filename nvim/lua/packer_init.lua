@@ -33,6 +33,9 @@ return packer.startup(function(use)
   -- Add you plugins here:
   use 'wbthomason/packer.nvim' -- packer can manage itself
 
+  -- Gruvbox
+  use { "ellisonleao/gruvbox.nvim" }
+
   -- File explorer
   use 'kyazdani42/nvim-tree.lua'
 

@@ -1,4 +1,4 @@
-local status_ok, color_scheme = pcall(require, 'onedark')
+local status_ok, color_scheme = pcall(require, 'gruvbox')
 if not status_ok then
   return
 end
@@ -7,12 +7,12 @@ end
 -- See the README of the selected color scheme for the instruction
 -- to use.
 -- e.g.: require('color_scheme').setup{}, vim.cmd('color_scheme') ...
-require('onedark').setup {
+--require('onedark').setup {
   -- styles: dark, darker, cool, deep, warm, warmer, light
-  style = 'darker',
-  colors = { fg = '#b2bbcc' }, --default: #a0a8b7
-}
-require('onedark').load()
+--  style = 'darker',
+--  colors = { fg = '#b2bbcc' }, --default: #a0a8b7
+--}
+require('gruvbox').load()
 
 --[[
 Statusline color schemes.
@@ -68,5 +68,22 @@ M.rose_pine = {
   orange = '#2a2837',
   red = '#ebbcba',
 }
+
+M.gruvbox = {
+  fg = '#928374',
+  bg = '#1F2223',
+  black ='#1B1B1B',
+  skyblue = '#458588',
+  cyan = '#83a597',
+  green = '#689d6a',
+  oceanblue = '#1d2021',
+  magenta = '#fb4934',
+  orange = '#fabd2f',
+  red = '#cc241d',
+  violet = '#b16286',
+  white = '#ebdbb2',
+  yellow = '#d79921',
+}
+
 
 return M
